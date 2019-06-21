@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>simpleserver</module>
-        <module>simpleclient</module>
+        <module>echo</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -29,9 +29,25 @@
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.0.56.Final</version>
+            <version>4.1.34.Final</version>
         </dependency>
     </dependencies>
+
+
+    <build>
+        <plugins>
+            <!-- 指定jdk，防止update project -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
