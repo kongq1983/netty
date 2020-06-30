@@ -20,6 +20,7 @@ import io.netty.util.CharsetUtil;
  */
 public class SimpleNettyClient implements Runnable {
 
+    @Override
     public void run() {
         EventLoopGroup group = new NioEventLoopGroup();
         try {
@@ -40,7 +41,7 @@ public class SimpleNettyClient implements Runnable {
             for (int i = 0; i < 100000; i++) {
                 ChannelFuture f = b.connect("127.0.0.1", SimpleNettyServer.PORT).sync();
                 f.channel().writeAndFlush("hello Service!" + Thread.currentThread().getName() + ":--->:" + i);
-                Thread.sleep(1000l);
+                Thread.sleep(10000);
                 f.channel().closeFuture().sync();
             }
 
@@ -53,7 +54,7 @@ public class SimpleNettyClient implements Runnable {
     }
 
     public static void main(String[] args) throws Exception {
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 1; i++) {
             new Thread(new SimpleNettyClient(), ">>>this thread " + i).start();
         }
     }
