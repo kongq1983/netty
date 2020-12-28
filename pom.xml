@@ -12,6 +12,7 @@
         <module>echo</module>
         <module>buffer</module>
         <module>self-protocol</module>
+        <module>mytomcat</module>
     </modules>
     <packaging>pom</packaging>
 
