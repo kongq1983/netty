@@ -41,7 +41,7 @@ public class SimpleNettyClient implements Runnable {
             for (int i = 0; i < 100000; i++) {
                 ChannelFuture f = b.connect("127.0.0.1", SimpleNettyServer.PORT).sync();
                 f.channel().writeAndFlush("hello Service!" + Thread.currentThread().getName() + ":--->:" + i);
-                Thread.sleep(10000);
+                Thread.sleep(120000);
                 f.channel().closeFuture().sync();
             }
 

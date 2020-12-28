@@ -11,6 +11,7 @@
         <module>simpleserver</module>
         <module>echo</module>
         <module>buffer</module>
+        <module>self-protocol</module>
     </modules>
     <packaging>pom</packaging>
 
