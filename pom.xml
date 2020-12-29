@@ -13,6 +13,7 @@
         <module>buffer</module>
         <module>self-protocol</module>
         <module>mytomcat</module>
+        <module>calc-rpc</module>
     </modules>
     <packaging>pom</packaging>
 
