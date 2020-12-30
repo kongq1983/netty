@@ -25,12 +25,13 @@ public class RegistryHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         InvokerProtocol request = (InvokerProtocol)msg;
+        Object result = null;
         if(registryMap.containsKey(request.getClassName())) {
             Object clazz = registryMap.get(request.getClassName());
             Method method = clazz.getClass().getMethod(request.getMethodName(),request.getParams());
-            method.invoke(clazz,request.getValues());
+            result = method.invoke(clazz,request.getValues());
         }
-        ctx.write(request);
+        ctx.write(result);
         ctx.flush();
         ctx.close();
     }

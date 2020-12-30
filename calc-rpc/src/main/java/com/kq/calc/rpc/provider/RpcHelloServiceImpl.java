@@ -7,6 +7,6 @@ public class RpcHelloServiceImpl implements IRpcHelloService {
 
     @Override
     public String hello(String name) {
-        return "Hello"+name+"!";
+        return "Hello, "+name+"!";
     }
 }

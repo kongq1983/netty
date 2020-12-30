@@ -7,7 +7,7 @@ public class InvokerProtocol implements Serializable {
 
     private String className;
     private String methodName;
-    private Class<?> params;
+    private Class<?>[] params;
     private Object[] values;
 
     public String getClassName() {
@@ -26,11 +26,11 @@ public class InvokerProtocol implements Serializable {
         this.methodName = methodName;
     }
 
-    public Class<?> getParams() {
+    public Class<?>[] getParams() {
         return params;
     }
 
-    public void setParams(Class<?> params) {
+    public void setParams(Class<?>[] params) {
         this.params = params;
     }
 

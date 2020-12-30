@@ -7,7 +7,6 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.LengthFieldPrepender;
-import io.netty.handler.codec.serialization.ClassResolver;
 import io.netty.handler.codec.serialization.ClassResolvers;
 import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
@@ -38,6 +37,7 @@ public class RpcRegistry {
 
             ChannelFuture future = b.bind(port).sync();
             System.out.println("GP RPC Registry start listen at "+port);
+            future.channel().closeFuture().sync();
 
         }catch (Exception e){
             e.printStackTrace();
